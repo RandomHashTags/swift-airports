@@ -5,19 +5,32 @@ import PackageDescription
 
 let package = Package(
     name: "swift-airports",
+    defaultLocalization: "en",
+    platforms: [
+        .macOS(.v10_15)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "swift-airports",
-            targets: ["swift-airports"]),
+            name: "SwiftAirports",
+            targets: ["SwiftAirports"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/RandomHashTags/swift-sovereign-states.git", from: "1.3.2")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "swift-airports"),
+            name: "SwiftAirports",
+            dependencies: [
+                .product(name: "SwiftSovereignStates", package: "swift-sovereign-states")
+            ],
+            path: "./Sources/swift-airports"
+        ),
         .testTarget(
             name: "swift-airportsTests",
-            dependencies: ["swift-airports"]),
+            dependencies: ["SwiftAirports"]
+        ),
     ]
 )
