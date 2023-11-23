@@ -46,6 +46,16 @@ public enum AirportsUnitedStatesAlabama : String, AirportUnitedStates { // https
     public var icao : String {
         return "K" + faa
     }
+    
+    public var website : String {
+        switch self {
+        case .birmingham_shuttlesworth: return "https://www.flybirmingham.com"
+        case .dothan: return "https://flydothan.com"
+        case .huntsville: return "https://www.flyhuntsville.com"
+        case .mobile: return "https://www.mobileairportauthority.com"
+        case .montgomery: return "https://flymgm.com"
+        }
+    }
 }
 
 /*
