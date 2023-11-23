@@ -29,6 +29,7 @@ public extension SubdivisionsUnitedStates {
         case .alabama: return AirportsUnitedStatesAlabama.self
         //case .alaska:  return AirportsUnitedStatesAlaska.self
         case .minnesota: return AirportsUnitedStatesMinnesota.self
+        case .montana: return AirportsUnitedStatesMontana.self
         default: return nil
         }
     }

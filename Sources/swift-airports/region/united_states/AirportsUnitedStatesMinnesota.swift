@@ -12,7 +12,7 @@ public enum AirportsUnitedStatesMinnesota : String, AirportUnitedStates { // htt
     case bemidji
     case brainerd
     case duluth
-    case hibbing
+    case range
     case minneapolis_saint_paul
     case rochester
     case saint_cloud
@@ -32,7 +32,7 @@ public enum AirportsUnitedStatesMinnesota : String, AirportUnitedStates { // htt
         case .bemidji: return "BJI"
         case .brainerd: return "BRD"
         case .duluth: return "DLH"
-        case .hibbing: return "HIB"
+        case .range: return "HIB"
         case .minneapolis_saint_paul: return "MSP"
         case .rochester: return "RST"
         case .saint_cloud: return "STC"
@@ -51,7 +51,7 @@ public enum AirportsUnitedStatesMinnesota : String, AirportUnitedStates { // htt
         case .bemidji: return "https://www.bemidjiairport.org"
         case .brainerd: return "https://brainerdairport.com"
         case .duluth: return "https://duluthairport.com"
-        case .hibbing: return "https://www.rangeregionalairport.com"
+        case .range: return "https://www.rangeregionalairport.com"
         case .minneapolis_saint_paul: return "https://www.mspairport.com"
         case .rochester: return "https://flyrst.com"
         case .saint_cloud: return "https://stcloudairport.com"

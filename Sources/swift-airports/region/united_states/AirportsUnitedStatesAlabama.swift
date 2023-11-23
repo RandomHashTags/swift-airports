@@ -9,7 +9,7 @@ import Foundation
 import SwiftSovereignStates
 
 public enum AirportsUnitedStatesAlabama : String, AirportUnitedStates { // https://en.wikipedia.org/wiki/List_of_airports_in_the_United_States | https://en.wikipedia.org/wiki/List_of_airports_in_Alabama
-    case birmingham
+    case birmingham_shuttlesworth
     case dothan
     case huntsville
     case mobile
@@ -31,7 +31,7 @@ public enum AirportsUnitedStatesAlabama : String, AirportUnitedStates { // https
     
     public var faa : String {
         switch self {
-        case .birmingham: return "BHM"
+        case .birmingham_shuttlesworth: return "BHM"
         case .dothan: return "DHN"
         case .huntsville: return "HSV"
         case .mobile: return "MOB"
