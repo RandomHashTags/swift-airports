@@ -13,6 +13,10 @@ public protocol AirportUnitedStates : Airport {
     var faa : String { get }
 }
 public extension AirportUnitedStates {
+    var country : Country {
+        return Country.united_states
+    }
+    
     func keywordsAdditional(forLocale locale: Locale) -> Set<String>? {
         return [faa]
     }
@@ -24,6 +28,7 @@ public extension SubdivisionsUnitedStates {
         switch self {
         case .alabama: return AirportsUnitedStatesAlabama.self
         //case .alaska:  return AirportsUnitedStatesAlaska.self
+        case .minnesota: return AirportsUnitedStatesMinnesota.self
         default: return nil
         }
     }

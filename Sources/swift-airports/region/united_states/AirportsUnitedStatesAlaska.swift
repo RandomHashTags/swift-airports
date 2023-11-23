@@ -35,13 +35,6 @@ public enum AirportsUnitedStatesAlaska : String, AirportUnitedStates {
     case wrangell
     case yakutat
     
-    public typealias SubdivisionType = SubdivisionsUnitedStates
-    public typealias CityType = CitiesUnitedStatesAlaska
-    
-    public var country: Country {
-        return Country.united_states
-    }
-    
     public var subdivision_level_1 : any SovereignStateSubdivision {
         return SubdivisionsUnitedStates.alaska
     }

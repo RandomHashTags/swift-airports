@@ -15,23 +15,19 @@ public enum AirportsUnitedStatesAlabama : String, AirportUnitedStates { // https
     case mobile
     case montgomery
     
-    public var country : Country {
-        return Country.united_states
-    }
-    
     public var subdivision_level_1 : any SovereignStateSubdivision {
         return SubdivisionsUnitedStates.alabama
     }
     
-    public var city : any SovereignStateCity {
+    /*public var citiesServed : [any SovereignStateCity] {
         switch self {
-        case .birmingham: return CitiesUnitedStatesAlabama.birmingham
-        case .dothan: return CitiesUnitedStatesAlabama.dothan
-        case .huntsville: return CitiesUnitedStatesAlabama.huntsville
-        case .mobile: return CitiesUnitedStatesAlabama.mobile
-        case .montgomery: return CitiesUnitedStatesAlabama.montgomery
+        case .birmingham: return [CitiesUnitedStatesAlabama.birmingham]
+        case .dothan: return [CitiesUnitedStatesAlabama.dothan]
+        case .huntsville: return [CitiesUnitedStatesAlabama.huntsville]
+        case .mobile: return [CitiesUnitedStatesAlabama.mobile]
+        case .montgomery: return [CitiesUnitedStatesAlabama.montgomery]
         }
-    }
+    }*/
     
     public var faa : String {
         switch self {
@@ -52,6 +48,7 @@ public enum AirportsUnitedStatesAlabama : String, AirportUnitedStates { // https
     }
 }
 
+/*
 public extension CitiesUnitedStatesAlabama {
     var airports : [AirportsUnitedStatesAlabama] {
         switch self {
@@ -64,3 +61,4 @@ public extension CitiesUnitedStatesAlabama {
         }
     }
 }
+*/
