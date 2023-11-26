@@ -31,6 +31,8 @@ public extension SubdivisionsUnitedStates {
         case .arizona: return AirportsUnitedStatesArizona.self
         case .arkansas: return AirportsUnitedStatesArkansas.self
             
+        case .connecticut: return AirportsUnitedStatesConnecticut.self
+            
         case .minnesota: return AirportsUnitedStatesMinnesota.self
         case .montana: return AirportsUnitedStatesMontana.self
             
