@@ -35,7 +35,7 @@ public enum AirportsUnitedStatesAlaska : String, AirportUnitedStates {
     case wrangell
     case yakutat
     
-    public var subdivision_level_1 : any SovereignStateSubdivision {
+    public var subdivision_level_1 : SubdivisionLevel1Type {
         return SubdivisionsUnitedStates.alaska
     }
     

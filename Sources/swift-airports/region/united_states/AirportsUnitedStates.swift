@@ -8,7 +8,7 @@
 import Foundation
 import SwiftSovereignStates
 
-public protocol AirportUnitedStates : Airport {
+public protocol AirportUnitedStates : Airport where SubdivisionLevel1Type == SubdivisionsUnitedStates {
     /// The location identifier assigned by the Federal Aviation Administration (FAA).
     var faa : String { get }
 }

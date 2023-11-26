@@ -15,7 +15,7 @@ public enum AirportsUnitedStatesAlabama : String, AirportUnitedStates { // https
     case mobile
     case montgomery
     
-    public var subdivision_level_1 : any SovereignStateSubdivision {
+    public var subdivision_level_1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.alabama
     }
     

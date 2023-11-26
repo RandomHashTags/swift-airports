@@ -9,8 +9,10 @@ import Foundation
 import SwiftSovereignStates
 
 public protocol Airport : CaseIterable, RawRepresentable where RawValue == String {
+    associatedtype SubdivisionLevel1Type : SovereignStateSubdivision
+    
     var country : Country { get }
-    var subdivision_level_1 : any SovereignStateSubdivision { get }
+    var subdivision_level_1 : SubdivisionLevel1Type { get }
     //var citiesServed : [any SovereignStateCity] { get }
     
     func name(forLocale locale: Locale) -> String
