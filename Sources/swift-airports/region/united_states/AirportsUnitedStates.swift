@@ -30,11 +30,15 @@ public extension SubdivisionsUnitedStates {
         case .alaska:  return AirportsUnitedStatesAlaska.self
         case .arizona: return AirportsUnitedStatesArizona.self
         case .arkansas: return AirportsUnitedStatesArkansas.self
+        case .california: return AirportsUnitedStatesCalifornia.self
             
         case .connecticut: return AirportsUnitedStatesConnecticut.self
+        case .delaware: return AirportsUnitedStatesDelaware.self
             
         case .minnesota: return AirportsUnitedStatesMinnesota.self
         case .montana: return AirportsUnitedStatesMontana.self
+            
+        case .vermont: return AirportsUnitedStatesVermont.self
             
         default: return nil
         }

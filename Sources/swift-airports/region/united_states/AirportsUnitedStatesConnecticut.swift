@@ -8,7 +8,7 @@
 import Foundation
 import SwiftSovereignStates
 
-public enum AirportsUnitedStatesConnecticut : String, AirportUnitedStates {
+public enum AirportsUnitedStatesConnecticut : String, AirportUnitedStates { // https://en.wikipedia.org/wiki/List_of_airports_in_the_United_States | https://en.wikipedia.org/wiki/List_of_airports_in_Connecticut
     case bradley
     case tweedNewHaven
     
