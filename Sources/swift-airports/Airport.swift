@@ -21,7 +21,8 @@ public protocol Airport : CaseIterable, RawRepresentable where RawValue == Strin
     func keywords(forLocale locale: Locale) -> Set<String>
     func keywordsAdditional(forLocale locale: Locale) -> Set<String>?
     
-    func isMentioned(locale: Locale, in string: String) -> Bool
+    /// Whether this Airport is mentioned or not in the `string`.
+    func isMentioned(in string: String, locale: Locale, exact: Bool, options: String.CompareOptions) -> Bool
     
     /// The airport code assigned by the International Air Transport Association (IATA).
     var iata : String { get }
@@ -51,10 +52,12 @@ public extension Airport {
         return set
     }
     
-    func isMentioned(locale: Locale, in string: String) -> Bool {
-        return Airports.doesSatisfy(string_start_index: string.startIndex, string_end_index: string.endIndex, string: string.lowercased(), values: keywords(forLocale: locale))
-    }
-    func isMentionedExactly(locale: Locale, in string: String, ignoreCase: Bool) -> Bool {
-        return Airports.doesEqual(string: string, values: keywords(forLocale: locale), option: ignoreCase ? .caseInsensitive : .literal)
+    func isMentioned(in string: String, locale: Locale, exact: Bool, options: String.CompareOptions) -> Bool {
+        let keywords:Set<String> = keywords(forLocale: locale)
+        if exact {
+            return Airports.doesEqual(string: string, values: keywords, options: options)
+        } else {
+            return Airports.doesSatisfy(string_start_index: string.startIndex, string_end_index: string.endIndex, string: string, values: keywords, options: options)
+        }
     }
 }
