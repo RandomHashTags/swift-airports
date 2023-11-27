@@ -74,7 +74,7 @@ public extension SubdivisionsUnitedStates {
         case .virginia: return nil
         case .washington: return nil
         case .washington_dc: return nil
-        case .west_virginia: return nil
+        case .west_virginia: return AirportsUnitedStatesWestVirginia.self
         case .wisconsin: return AirportsUnitedStatesWisconsin.self
         case .wyoming: return AirportsUnitedStatesWyoming.self
             
