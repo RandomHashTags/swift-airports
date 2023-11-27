@@ -12,7 +12,7 @@ public protocol Airport : CaseIterable, RawRepresentable where RawValue == Strin
     associatedtype SubdivisionLevel1Type : SovereignStateSubdivision
     
     var country : Country { get }
-    var subdivision_level_1 : SubdivisionLevel1Type { get }
+    var subdivisionLevel1 : SubdivisionLevel1Type { get }
     //var citiesServed : [any SovereignStateCity] { get }
     
     func name(forLocale locale: Locale) -> String
@@ -56,9 +56,5 @@ public extension Airport {
     }
     func isMentionedExactly(locale: Locale, in string: String, ignoreCase: Bool) -> Bool {
         return Airports.doesEqual(string: string, values: keywords(forLocale: locale), option: ignoreCase ? .caseInsensitive : .literal)
-    }
-    
-    var website : String? {
-        return nil
     }
 }

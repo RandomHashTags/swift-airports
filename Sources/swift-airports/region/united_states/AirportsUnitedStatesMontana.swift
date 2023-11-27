@@ -18,7 +18,7 @@ public enum AirportsUnitedStatesMontana : String, AirportUnitedStates { // https
     case missoula
     case yellowstone
     
-    public var subdivision_level_1 : SubdivisionsUnitedStates {
+    public var subdivisionLevel1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.montana
     }
     

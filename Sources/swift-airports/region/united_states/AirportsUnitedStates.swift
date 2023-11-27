@@ -37,7 +37,7 @@ public extension SubdivisionsUnitedStates {
         case .florida: return nil
         case .georgia: return nil
         case .hawaii: return AirportsUnitedStatesHawaii.self
-        case .idaho: return nil
+        case .idaho: return AirportsUnitedStatesIdaho.self
         case .illinois: return nil
         case .indiana: return nil
         case .iowa: return nil

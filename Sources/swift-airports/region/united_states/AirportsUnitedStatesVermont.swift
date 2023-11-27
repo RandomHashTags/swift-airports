@@ -11,7 +11,7 @@ import SwiftSovereignStates
 public enum AirportsUnitedStatesVermont : String, AirportUnitedStates { // https://en.wikipedia.org/wiki/List_of_airports_in_the_United_States | https://en.wikipedia.org/wiki/List_of_airports_in_Vermont
     case burlington
     
-    public var subdivision_level_1 : SubdivisionsUnitedStates {
+    public var subdivisionLevel1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.vermont
     }
     

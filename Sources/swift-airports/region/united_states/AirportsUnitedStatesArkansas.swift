@@ -14,7 +14,7 @@ public enum AirportsUnitedStatesArkansas : String, AirportUnitedStates { // http
     case clinton
     case texarkana
     
-    public var subdivision_level_1 : SubdivisionsUnitedStates {
+    public var subdivisionLevel1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.arkansas
     }
     

@@ -17,7 +17,7 @@ public enum AirportsUnitedStatesMinnesota : String, AirportUnitedStates { // htt
     case rochester
     case saint_cloud
     
-    public var subdivision_level_1 : SubdivisionsUnitedStates {
+    public var subdivisionLevel1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.minnesota
     }
     /*public var citiesServed : [any SovereignStateCity] {

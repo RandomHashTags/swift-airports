@@ -17,7 +17,7 @@ public enum AirportsUnitedStatesArizona : String, AirportUnitedStates { // https
     case tucson
     case yuma
     
-    public var subdivision_level_1 : SubdivisionsUnitedStates {
+    public var subdivisionLevel1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.arizona
     }
     

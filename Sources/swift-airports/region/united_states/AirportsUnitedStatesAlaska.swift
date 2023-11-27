@@ -33,7 +33,7 @@ public enum AirportsUnitedStatesAlaska : String, AirportUnitedStates { // https:
     case wrangell
     case yakutat
     
-    public var subdivision_level_1 : SubdivisionsUnitedStates {
+    public var subdivisionLevel1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.alaska
     }
     

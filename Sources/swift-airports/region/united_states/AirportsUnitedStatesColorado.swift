@@ -20,7 +20,7 @@ public enum AirportsUnitedStatesColorado : String, AirportUnitedStates { // http
     case yampa
     case montrose
     
-    public var subdivision_level_1 : SubdivisionsUnitedStates {
+    public var subdivisionLevel1 : SubdivisionsUnitedStates {
         return SubdivisionsUnitedStates.colorado
     }
     
