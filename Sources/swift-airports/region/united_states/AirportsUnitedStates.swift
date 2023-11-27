@@ -34,7 +34,7 @@ public extension SubdivisionsUnitedStates {
         case .colorado: return AirportsUnitedStatesColorado.self
         case .connecticut: return AirportsUnitedStatesConnecticut.self
         case .delaware: return AirportsUnitedStatesDelaware.self
-        case .florida: return nil
+        case .florida: return AirportsUnitedStatesFlorida.self
         case .georgia: return nil
         case .hawaii: return AirportsUnitedStatesHawaii.self
         case .idaho: return AirportsUnitedStatesIdaho.self
