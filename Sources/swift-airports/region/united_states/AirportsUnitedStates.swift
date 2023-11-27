@@ -69,7 +69,7 @@ public extension SubdivisionsUnitedStates {
         case .south_dakota: return nil
         case .tennessee: return nil
         case .texas: return nil
-        case .utah: return nil
+        case .utah: return AirportsUnitedStatesUtah.self
         case .vermont: return AirportsUnitedStatesVermont.self
         case .virginia: return nil
         case .washington: return nil
