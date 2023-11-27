@@ -3,7 +3,7 @@ import SwiftAirports
 
 final class swift_airportsTests: XCTestCase {
     func testExample() throws {
-        XCTAssertEqual(Airports.allCases.count, 190)
+        XCTAssertEqual(Airports.allCases.count, 208)
         
         XCTAssertEqual(get_all_mentioned("lax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("LAX", options: [.literal]).count, 1)
