@@ -75,23 +75,22 @@ extension String {
         let child_bytes:[UInt16] = [UInt16](value.utf16)
         let child_bytes_count:Int = child_bytes.count
         
-        var parent_blocks:[SIMD64<UInt16>] = []
-        for index in 0..<(parent_count / simd_width)+1 {
-            var simd:SIMD64<UInt16> = SIMD64<UInt16>()
+        let parent_blocks_count:Int = (parent_count / simd_width)+1
+        var parent_blocks:[SIMD64<UInt16>] = [SIMD64<UInt16>].init(repeating: SIMD64<UInt16>(), count: parent_blocks_count)
+        for index in 0..<parent_blocks_count {
             let starting_index:Int = index * simd_width
             for i in 0..<min(parent_bytes_count - starting_index, simd_width) {
-                simd[i] = parent_bytes[starting_index + i]
+                parent_blocks[index][i] = parent_bytes[starting_index + i]
             }
-            parent_blocks.append(simd)
         }
-        var child_blocks:[SIMD64<UInt16>] = []
-        for index in 0..<(child_count / simd_width)+1 {
-            var simd:SIMD64<UInt16> = SIMD64<UInt16>()
+        let child_blocks_count:Int = (child_count / simd_width)+1
+        var child_blocks:[SIMD64<UInt16>] = [SIMD64<UInt16>].init(repeating: SIMD64<UInt16>(), count: child_blocks_count)
+        child_blocks.reserveCapacity(child_blocks_count)
+        for index in 0..<child_blocks_count {
             let starting_index:Int = index * simd_width
             for i in 0..<min(child_bytes_count - starting_index, simd_width) {
-                simd[i] = child_bytes[starting_index + i]
+                child_blocks[index][i] = child_bytes[starting_index + i]
             }
-            child_blocks.append(simd)
         }
         
         var entryLength:Int = child_count
