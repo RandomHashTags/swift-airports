@@ -3,10 +3,19 @@ import SwiftAirports
 
 final class swift_airportsTests: XCTestCase {
     func testExample() throws {
-        XCTAssertEqual(Airports.allCases.count, 268)
+        
+        /*measure {
+            let test:Bool = " LAX".containsSIMD("LAX")
+        }*/
+        /*measure {
+            let test:Bool = " LAX".containsSIMD2("LAX")
+        }
+        return;*/
+        XCTAssertEqual(Airports.allCases.count, 340)
         
         XCTAssertEqual(get_all_mentioned("lax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("LAX", options: [.literal]).count, 1)
+        
         XCTAssertEqual(get_all_mentioned("làx", options: [.caseInsensitive]).count, 0)
         XCTAssertEqual(get_all_mentioned("lax", options: [.caseInsensitive]).count, 1)
         
