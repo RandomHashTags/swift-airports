@@ -56,7 +56,7 @@ public extension SubdivisionsUnitedStates {
         case .nevada: return AirportsUnitedStatesNevada.self
         case .new_hampshire: return AirportsUnitedStatesNewHampshire.self
         case .new_jersey: return AirportsUnitedStatesNewJersey.self
-        case .new_mexico: return nil
+        case .new_mexico: return AirportsUnitedStatesNewMexico.self
         case .new_york: return nil
         case .north_carolina: return nil
         case .north_dakota: return nil
