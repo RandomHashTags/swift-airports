@@ -47,7 +47,7 @@ public extension SubdivisionsUnitedStates {
         case .maine: return AirportsUnitedStatesMaine.self
         case .maryland: return AirportsUnitedStatesMaryland.self
         case .massachusetts: return AirportsUnitedStatesMassachusetts.self
-        case .michigan: return nil
+        case .michigan: return AirportsUnitedStatesMichigan.self
         case .minnesota: return AirportsUnitedStatesMinnesota.self
         case .mississippi: return nil
         case .missouri: return nil
