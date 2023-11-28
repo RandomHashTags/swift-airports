@@ -49,7 +49,7 @@ public extension SubdivisionsUnitedStates {
         case .massachusetts: return AirportsUnitedStatesMassachusetts.self
         case .michigan: return AirportsUnitedStatesMichigan.self
         case .minnesota: return AirportsUnitedStatesMinnesota.self
-        case .mississippi: return nil
+        case .mississippi: return AirportsUnitedStatesMississippi.self
         case .missouri: return nil
         case .montana: return AirportsUnitedStatesMontana.self
         case .nebraska: return nil
