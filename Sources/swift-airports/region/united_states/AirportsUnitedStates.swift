@@ -67,7 +67,7 @@ public extension SubdivisionsUnitedStates {
         case .rhode_island: return AirportsUnitedStatesRhodeIsland.self
         case .south_carolina: return AirportsUnitedStatesSouthCarolina.self
         case .south_dakota: return AirportsUnitedStatesSouthDakota.self
-        case .tennessee: return nil
+        case .tennessee: return AirportsUnitedStatesTennessee.self
         case .texas: return nil
         case .utah: return AirportsUnitedStatesUtah.self
         case .vermont: return AirportsUnitedStatesVermont.self
