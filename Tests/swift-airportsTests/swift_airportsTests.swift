@@ -4,20 +4,23 @@ import SwiftAirports
 final class swift_airportsTests: XCTestCase {
     func testExample() throws {
         
-        /*measure {
-            let test:Bool = " LAX".containsSIMD("LAX")
+        /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
+            let _:[any Airport] = Airports.getAllMentioned("LAX", options: .literal)
+        }, key2: "getAllMentioned2") {
+            let _:[any Airport] = Airports.getAllMentioned2("LAX", options: .literal)
         }*/
-        /*measure {
-            let test:Bool = " LAX".containsSIMD2("LAX")
-        }
-        return;*/
+        
         XCTAssertEqual(Airports.allCases.count, 340)
         
         XCTAssertEqual(get_all_mentioned("lax", options: [.literal]).count, 0)
+        XCTAssertEqual(get_all_mentioned("llax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("LAX", options: [.literal]).count, 1)
+        XCTAssertEqual(get_all_mentioned("LLAX", options: [.literal]).count, 1)
         
         XCTAssertEqual(get_all_mentioned("làx", options: [.caseInsensitive]).count, 0)
+        XCTAssertEqual(get_all_mentioned("lààx", options: [.caseInsensitive]).count, 0)
         XCTAssertEqual(get_all_mentioned("lax", options: [.caseInsensitive]).count, 1)
+        XCTAssertEqual(get_all_mentioned("llax", options: [.caseInsensitive]).count, 1)
         
         XCTAssertEqual(get_all_mentioned("LÀX", options: [.diacriticInsensitive, .literal]).count, 1)
         XCTAssertEqual(get_all_mentioned("làx", options: [.diacriticInsensitive, .caseInsensitive]).count, 1)
