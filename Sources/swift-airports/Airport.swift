@@ -24,6 +24,8 @@ public protocol Airport : CaseIterable, RawRepresentable where RawValue == Strin
     /// Whether this Airport is mentioned or not in the `string`.
     func isMentioned(in string: String, options: String.CompareOptions, locale: Locale) -> Bool
     
+    func isMentioned2(in string: String, options: String.CompareOptions, locale: Locale) -> Bool
+    
     /// The airport code assigned by the International Air Transport Association (IATA).
     var iata : String { get }
     /// The location indicator assigned by the International Civil Aviation Organization (ICAO).
@@ -61,6 +63,10 @@ public extension Airport {
             }
         }
         return false
+    }
+    func isMentioned2(in string: String, options: String.CompareOptions, locale: Locale) -> Bool {
+        let keywords:Set<String> = Set<String>(keywords(forLocale: locale).map({ $0.folding(options: options, locale: locale) }))
+        return Airports.doesSatisfy(string_start_index: string.startIndex, string_end_index: string.endIndex, string: string, values: keywords)
     }
 }
 
