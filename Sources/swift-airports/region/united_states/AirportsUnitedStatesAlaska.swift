@@ -149,7 +149,7 @@ public enum AirportsUnitedStatesAlaska : String, AirportUnitedStates { // https:
         return "PA" + suffix
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .merrill: return "https://www.muni.org/departments/merrill_field/pages/default.aspx"
         case .ted_stevens: return "https://dot.alaska.gov/anc/"

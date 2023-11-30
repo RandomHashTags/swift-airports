@@ -31,7 +31,7 @@ public enum AirportsUnitedStatesWashingtonDC : String, AirportUnitedStates { // 
         return "K" + faa
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .ronaldReagonWashington: return "https://www.flyreagan.com"
         case .washingtonDulles: return "https://www.flydulles.com"

@@ -29,7 +29,7 @@ public protocol Airport : CaseIterable, RawRepresentable where RawValue == Strin
     /// The location indicator assigned by the International Civil Aviation Organization (ICAO).
     var icao : String { get }
     
-    var website : String? { get }
+    var websiteURL : String? { get }
 }
 
 public extension Airport {

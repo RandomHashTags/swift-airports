@@ -43,7 +43,7 @@ public enum AirportsUnitedStatesWisconsin : String, AirportUnitedStates { // htt
         return "K" + faa
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .appleton: return "https://atwairport.com"
         case .chippewa: return "https://www.visiteauclaire.com/plan/transportation/chippewa-valley-regional-airport/"

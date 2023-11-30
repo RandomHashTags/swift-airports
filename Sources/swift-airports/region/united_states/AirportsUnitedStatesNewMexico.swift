@@ -35,7 +35,7 @@ public enum AirportsUnitedStatesNewMexico : String, AirportUnitedStates { // htt
         return "K" + faa
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .albuquerque: return "https://www.abqsunport.com"
         case .leaCounty: return "https://flyhobbs.com"

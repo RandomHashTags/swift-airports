@@ -39,7 +39,7 @@ public enum AirportsUnitedStatesUtah : String, AirportUnitedStates { // https://
         return "K" + faa
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .cedarCity: return "https://www.cedarcity.org/2360/Airport"
         case .canyonlands: return "https://www.grandcountyutah.net/263/Airport"

@@ -76,7 +76,7 @@ public enum AirportsSwitzerland : String, Airport { // https://en.wikipedia.org/
         return "LS" + suffix
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .bern: return "https://www.bernairport.ch"
         case .buochs: return "https://airportbuochs.ch"

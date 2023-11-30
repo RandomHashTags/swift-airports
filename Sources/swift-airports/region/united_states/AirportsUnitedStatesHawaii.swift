@@ -65,7 +65,7 @@ public enum AirportsUnitedStatesHawaii : String, AirportUnitedStates { // https:
         return "PH" + suffix
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .hilo: return "https://airports.hawaii.gov/ito/"
         case .danielInouye: return "https://airports.hawaii.gov/hnl/"

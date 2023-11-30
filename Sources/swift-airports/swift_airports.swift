@@ -49,7 +49,7 @@ extension String {
     }
 }
 
-public extension Country {
+public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_airports_by_country
     var airportsType : (any Airport.Type)? {
         switch self {
         case .qatar: return AirportsQatar.self

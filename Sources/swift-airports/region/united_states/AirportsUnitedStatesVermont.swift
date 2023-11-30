@@ -29,7 +29,7 @@ public enum AirportsUnitedStatesVermont : String, AirportUnitedStates { // https
         return "K" + faa
     }
     
-    public var website : String? {
+    public var websiteURL : String? {
         switch self {
         case .burlington: return "https://www.btv.aero"
         }
