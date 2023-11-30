@@ -52,6 +52,7 @@ extension String {
 public extension Country {
     var airportsType : (any Airport.Type)? {
         switch self {
+        case .qatar: return AirportsQatar.self
         case .switzerland: return AirportsSwitzerland.self
         default: return nil
         }
