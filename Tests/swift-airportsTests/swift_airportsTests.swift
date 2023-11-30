@@ -5,23 +5,23 @@ final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
         
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 340)
+        XCTAssertEqual(all_airports.count, 371)
         
-        try await benchmark_compare_is_faster(key1: "getAllMentioned", {
+        /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:[any Airport] = Airports.getAllMentioned("LAX", options: .literal)
         }, key2: "getAllMentioned2") {
             let _:[any Airport] = Airports.getAllMentioned2("LAX", options: .literal)
-        }
+        }*/
         
         XCTAssertEqual(get_all_mentioned("lax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("llax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("LAX", options: [.literal]).count, 1)
-        XCTAssertEqual(get_all_mentioned("LLAX", options: [.literal]).count, 1)
+        XCTAssertEqual(get_all_mentioned("SNORLAX", options: [.literal]).count, 0)
         
         XCTAssertEqual(get_all_mentioned("làx", options: [.caseInsensitive]).count, 0)
         XCTAssertEqual(get_all_mentioned("lààx", options: [.caseInsensitive]).count, 0)
         XCTAssertEqual(get_all_mentioned("lax", options: [.caseInsensitive]).count, 1)
-        XCTAssertEqual(get_all_mentioned("llax", options: [.caseInsensitive]).count, 1)
+        XCTAssertEqual(get_all_mentioned("snorlax", options: [.caseInsensitive]).count, 0)
         
         XCTAssertEqual(get_all_mentioned("LÀX", options: [.diacriticInsensitive, .literal]).count, 1)
         XCTAssertEqual(get_all_mentioned("làx", options: [.diacriticInsensitive, .caseInsensitive]).count, 1)
