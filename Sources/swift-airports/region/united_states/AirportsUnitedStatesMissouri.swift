@@ -48,7 +48,7 @@ public enum AirportsUnitedStatesMissouri : String, AirportUnitedStates { // http
         switch self {
         case .branson: return "https://flybranson.com"
         case .columbia: return "https://www.flycou.com"
-        case .waynesville: return nil
+        case .waynesville: return "https://www.flyflw.com"
         case .joplin: return "https://www.flyjoplin.com"
         case .kansasCity: return "https://flykc.com"
         case .stLouis: return "https://www.flystl.com"

@@ -71,9 +71,9 @@ public extension SubdivisionsUnitedStates {
         case .texas: return AirportsUnitedStatesTexas.self
         case .utah: return AirportsUnitedStatesUtah.self
         case .vermont: return AirportsUnitedStatesVermont.self
-        case .virginia: return nil
-        case .washington: return nil
-        case .washington_dc: return nil // TODO: fix?
+        case .virginia: return AirportsUnitedStatesVirginia.self
+        case .washington: return AirportsUnitedStatesWashington.self
+        case .washington_dc: return AirportsUnitedStatesWashingtonDC.self
         case .west_virginia: return AirportsUnitedStatesWestVirginia.self
         case .wisconsin: return AirportsUnitedStatesWisconsin.self
         case .wyoming: return AirportsUnitedStatesWyoming.self

@@ -56,7 +56,7 @@ public enum AirportsUnitedStatesColorado : String, AirportUnitedStates { // http
         case .durango: return "https://www.flydurango.com/1450/Airport"
         case .eagle: return "https://www.flyvail.com"
         case .grandJunction: return "https://www.gjairport.com"
-        case .gunnison: return nil
+        case .gunnison: return "https://gunnisoncrestedbutte.com/visit/getting-here/"
         case .yampa: return "https://flysteamboat.com"
         case .montrose: return "https://montroseairport.com"
         }

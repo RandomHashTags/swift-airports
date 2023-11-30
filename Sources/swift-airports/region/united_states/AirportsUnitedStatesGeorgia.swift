@@ -8,7 +8,7 @@
 import Foundation
 import SwiftSovereignStates
 
-public enum AirportsUnitedStatesGeorgia : String, AirportUnitedStates { // https://en.wikipedia.org/wiki/List_of_airports_in_the_United_States | https://en.wikipedia.org/wiki/List_of_airports_in_Georgia
+public enum AirportsUnitedStatesGeorgia : String, AirportUnitedStates { // https://en.wikipedia.org/wiki/List_of_airports_in_the_United_States | https://en.wikipedia.org/wiki/List_of_airports_in_Georgia_(U.S._state)
     case southwest
     case hartsfield
     case augusta
@@ -45,9 +45,9 @@ public enum AirportsUnitedStatesGeorgia : String, AirportUnitedStates { // https
     
     public var website : String? {
         switch self {
-        case .southwest: return nil
+        case .southwest: return "https://airport.albanyga.gov"
         case .hartsfield: return "https://www.atl.com"
-        case .augusta: return nil
+        case .augusta: return "https://flyags.com"
         case .brunswick: return "https://flygcairports.com"
         case .columbus: return "https://www.flycolumbusga.com"
         case .middle: return "https://www.iflymacon.com/index.cms"

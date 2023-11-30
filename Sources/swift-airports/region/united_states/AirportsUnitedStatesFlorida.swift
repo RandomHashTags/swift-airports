@@ -68,7 +68,7 @@ public enum AirportsUnitedStatesFlorida : String, AirportUnitedStates { // https
     public var website : String? {
         switch self {
         case .daytonaBeach: return "https://www.flydaytonafirst.com"
-        case .fortLauderdale: return nil
+        case .fortLauderdale: return "https://www.broward.org/airport/Pages/default.aspx"
         case .southwest: return "https://www.flylcpa.com"
         case .destin: return "https://flyvps.com"
         case .gainesville: return "https://www.flygainesville.com"

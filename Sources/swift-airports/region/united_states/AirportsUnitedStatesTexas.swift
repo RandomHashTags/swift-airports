@@ -84,7 +84,7 @@ public enum AirportsUnitedStatesTexas : String, AirportUnitedStates { // https:/
         case .austin: return "https://www.austintexas.gov/airport"
         case .jackBrooks: return "https://flysetx.com"
         case .brownsville: return "https://flybrownsville.com"
-        case .easterwood: return nil
+        case .easterwood: return "https://www.flyeasterwood.com"
         case .corpusChristi: return "https://corpuschristiairport.com"
         case .dallasLove: return "https://www.dallas-lovefield.com"
         case .dallasFortWorth: return "https://www.dfwairport.com"
@@ -99,7 +99,7 @@ public enum AirportsUnitedStatesTexas : String, AirportUnitedStates { // https:/
         case .lubbockPrestonSmith: return "https://ci.lubbock.tx.us/departments/airport"
         case .mcAllen: return "https://www.mcallenairport.com"
         case .midland: return "https://www.flymaf.com"
-        case .sanAngelo: return nil
+        case .sanAngelo: return "https://www.cosatx.us/departments-services/airport"
         case .sanAntonio: return "https://flysanantonio.com"
         case .tylerPounds: return "https://www.cityoftyler.org/government/departments/airport"
         case .waco: return "https://www.waco-texas.com/Departments/Airport"

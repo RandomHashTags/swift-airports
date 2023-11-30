@@ -44,7 +44,7 @@ public enum AirportsUnitedStatesIdaho : String, AirportUnitedStates { // https:/
         case .boise: return "https://www.iflyboise.com"
         case .friedman: return "https://iflysun.com"
         case .idahoFalls: return "https://www.idahofallsidaho.gov/1743/Airport"
-        case .lewistonNezPerce: return nil
+        case .lewistonNezPerce: return "https://www.golws.com"
         case .pocatello: return "https://www.iflypocatello.com"
         case .magicValley: return "http://www.tfid.org/?NID=136"
         }

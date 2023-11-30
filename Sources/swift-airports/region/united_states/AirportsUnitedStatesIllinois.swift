@@ -51,7 +51,7 @@ public enum AirportsUnitedStatesIllinois : String, AirportUnitedStates { // http
         switch self {
         case .midAmerica: return "https://flymidamerica.com"
         case .central: return "https://cira.com"
-        case .willard: return nil
+        case .willard: return "https://iflycu.com"
         case .midway: return "https://www.flychicago.com/midway/home/pages/default.aspx"
         case .ohare: return "https://www.flychicago.com/ohare/home/pages/default.aspx"
         case .veterans: return "https://veteransairport.com"
