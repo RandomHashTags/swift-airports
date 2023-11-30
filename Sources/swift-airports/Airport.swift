@@ -52,6 +52,10 @@ public extension Airport {
         return set
     }
     
+    func keywordsAdditional(forLocale locale: Locale) -> Set<String>? {
+        return nil
+    }
+    
     func isMentioned(in string: String, options: String.CompareOptions, locale: Locale) -> Bool {
         let keywords:Set<String> = keywords(forLocale: locale)
         let start_index:String.Index = string.startIndex, end_index:String.Index = string.endIndex

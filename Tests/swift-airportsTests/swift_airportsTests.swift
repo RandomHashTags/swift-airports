@@ -5,7 +5,7 @@ final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
         
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 371)
+        XCTAssertEqual(all_airports.count, 378)
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:[any Airport] = Airports.getAllMentioned("LAX", options: .literal)
@@ -17,6 +17,9 @@ final class swift_airportsTests: XCTestCase {
         XCTAssertEqual(get_all_mentioned("llax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("LAX", options: [.literal]).count, 1)
         XCTAssertEqual(get_all_mentioned("SNORLAX", options: [.literal]).count, 0)
+        
+        XCTAssertEqual(get_all_mentioned("BRN", options: [.literal]).count, 1)
+        XCTAssertEqual(get_all_mentioned("LAX BRN", options: [.literal]).count, 2)
         
         XCTAssertEqual(get_all_mentioned("làx", options: [.caseInsensitive]).count, 0)
         XCTAssertEqual(get_all_mentioned("lààx", options: [.caseInsensitive]).count, 0)

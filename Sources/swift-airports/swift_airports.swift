@@ -6,7 +6,7 @@ import SwiftSovereignStates
 
 public enum Airports {
     public static var allCases : [any Airport] = {
-        return SubdivisionsUnitedStates.allCases.flatMap({ $0.airports })
+        return Country.allCases.flatMap({ $0.airports })
     }()
     
     /// Returns all airports that are mentioned in the `string`.
@@ -46,5 +46,21 @@ extension String {
             last_range = range.upperBound
         }
         return ranges
+    }
+}
+
+public extension Country {
+    var airportsType : (any Airport.Type)? {
+        switch self {
+        case .switzerland: return AirportsSwitzerland.self
+        default: return nil
+        }
+    }
+    
+    var airports : [any Airport] {
+        switch self {
+        case .united_states: return SubdivisionsUnitedStates.allCases.flatMap({ $0.airports })
+        default: return airportsType?.allCases as? [any Airport] ?? []
+        }
     }
 }
