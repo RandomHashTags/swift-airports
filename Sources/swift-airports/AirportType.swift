@@ -8,6 +8,12 @@
 import Foundation
 
 public enum AirportType {
+    case international
+    case domestic
     case `public`
+    case `private`
+    case closed
+    case civil
     case military
+    case heliport
 }
