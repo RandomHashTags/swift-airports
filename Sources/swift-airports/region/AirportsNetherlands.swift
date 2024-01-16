@@ -78,53 +78,23 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
     }
     
     public var icao : String {
-        let suffix:String
         switch self {
-        case .amsterdam:
-            suffix = "AM"
-            break
-        case .denHelder:
-            suffix = "KD"
-            break
-        case .eindhoven:
-            suffix = "EH"
-            break
-        case .enschede:
-            suffix = "TW"
-            break
-        case .groningen:
-            suffix = "GG"
-            break
-        case .lelystad:
-            suffix = "LE"
-            break
-        case .maastrichtAachen:
-            suffix = "BK"
-            break
-        case .rotterdamTheHauge:
-            suffix = "RD"
-            break
+        case .amsterdam: return "EHAM"
+        case .denHelder: return "EHKD"
+        case .eindhoven: return "EHEH"
+        case .enschede: return "EHTW"
+        case .groningen: return "EHGG"
+        case .lelystad: return "EHLE"
+        case .maastrichtAachen: return "EHBK"
+        case .rotterdamTheHauge: return "EHRD"
             
-        case .gilzeRijen:
-            suffix = "GR"
-            break
-        case .leeuwarden:
-            suffix = "LW"
-            break
-        /*case .valkenburg:
-            suffix = "VB"
-            break*/
-        /*case .soesterberg:
-            suffix = "SB"
-            break*/
-        case .volkel:
-            suffix = "VK"
-            break
-        case .woensdrecht:
-            suffix = "WO"
-            break
+        case .gilzeRijen: return "EHGR"
+        case .leeuwarden: return "EHLW"
+        /*case .valkenburg: return "EHVB"*/
+        /*case .soesterberg: return "EHSB"*/
+        case .volkel: return "EHVK"
+        case .woensdrecht: return "EHWO"
         }
-        return "EH" + suffix
     }
     
     public var websiteURL : String? {

@@ -88,7 +88,7 @@ public extension SubdivisionsUnitedStates {
         case .united_states_virgin_islands: return nil
         }
     }
-    var airports : [any Airport] {
-        return airportsType?.allCases as? [any Airport] ?? []
+    var airports : [any AirportUnitedStates] {
+        return airportsType?.allCases as? [any AirportUnitedStates] ?? []
     }
 }

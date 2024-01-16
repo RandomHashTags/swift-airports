@@ -5,14 +5,16 @@ final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
         
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 393)
+        XCTAssertEqual(all_airports.count, 539)
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
-            let _:[any Airport] = Airports.getAllMentioned("LAX", options: .literal)
+            let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
         }, key2: "getAllMentioned2") {
-            let _:[any Airport] = Airports.getAllMentioned2("LAX", options: .literal)
+            let _:String = AirportsIndiaJammuAndKashmir.jammu.icao
         }*/
-        
+    }
+    
+    func test_mentions() {
         XCTAssertEqual(get_all_mentioned("lax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("llax", options: [.literal]).count, 0)
         XCTAssertEqual(get_all_mentioned("LAX", options: [.literal]).count, 1)
@@ -33,15 +35,30 @@ final class swift_airportsTests: XCTestCase {
         XCTAssertEqual(get_all_mentioned("_______________________________________________________________LAX", options: [.literal]).count, 1)
         XCTAssertEqual(get_all_mentioned("_______________________________________________________________LÀX", options: [.diacriticInsensitive, .literal]).count, 1)
     }
-    
     private func get_all_mentioned(_ string: String, options: String.CompareOptions) -> [any Airport] {
         let string:String = string.folding(options: options, locale: nil)
         return Airports.getAllMentioned(string, options: options)
     }
     
+    func test_iata() {
+        let all_airports:[any Airport] = Airports.allCases
+        let locale:Locale = Locale.current
+        for airport in all_airports {
+            XCTAssertEqual(airport.iata.count, 3, airport.country.name + ";" + airport.subdivisionLevel1.name + ";" + airport.name(forLocale: locale))
+        }
+    }
+    func test_icao() {
+        let all_airports:[any Airport] = Airports.allCases
+        let locale:Locale = Locale.current
+        for airport in all_airports {
+            XCTAssertEqual(airport.icao.count, 4, airport.country.name + ";" + airport.subdivisionLevel1.name + ";" + airport.name(forLocale: locale))
+        }
+    }
+}
+extension swift_airportsTests {
     func test() {
         let options:String.CompareOptions = [.diacriticInsensitive, .caseInsensitive]
-        let string1:String = "yoink LÅX eiurgsepirugesriaweunfeaireiurgsepirugesriaweunfeair".folding(options: options, locale: nil)
+        let string1:String = "yoink LÅX eiurgsepirugesriaweunfeaireiurgsepirugesriaweunfeair"
         measure {
             let _:[any Airport] = Airports.getAllMentioned(string1, options: options)
         }

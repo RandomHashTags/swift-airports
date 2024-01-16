@@ -5,9 +5,7 @@ import Foundation
 import SwiftSovereignStates
 
 public enum Airports {
-    public static var allCases : [any Airport] = {
-        return Country.allCases.flatMap({ $0.airports })
-    }()
+    public static let allCases:[any Airport] = Country.allCases.flatMap({ $0.airports })
     
     /// Returns all airports that are mentioned in the `string`.
     public static func getAllMentioned(_ string: String, options: String.CompareOptions, locale: Locale = Locale.current) -> [any Airport] {
@@ -61,6 +59,7 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
     
     var airports : [any Airport] {
         switch self {
+        case .india: return SubdivisionsIndia.allCases.flatMap({ $0.airports })
         case .united_states: return SubdivisionsUnitedStates.allCases.flatMap({ $0.airports })
         default: return airportsType?.allCases as? [any Airport] ?? []
         }

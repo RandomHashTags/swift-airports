@@ -38,31 +38,15 @@ public enum AirportsUnitedStatesHawaii : String, AirportUnitedStates { // https:
     }
     
     public var icao : String {
-        let suffix:String
         switch self {
-        case .hilo:
-            suffix = "TO"
-            break
-        case .danielInouye:
-            suffix = "NL"
-            break
-        case .kahului:
-            suffix = "OG"
-            break
-        case .ellison:
-            suffix = "KO"
-            break
-        case .molokai:
-            suffix = "MK"
-            break
-        case .lanai:
-            suffix = "NY"
-            break
-        case .lihue:
-            suffix = "LI"
-            break
+        case .hilo: return "PHTO"
+        case .danielInouye: return "PHNL"
+        case .kahului: return "PHOG"
+        case .ellison: return "PHKO"
+        case .molokai: return "PHMK"
+        case .lanai: return "PHNY"
+        case .lihue: return "PHLI"
         }
-        return "PH" + suffix
     }
     
     public var websiteURL : String? {

@@ -74,79 +74,31 @@ public enum AirportsUnitedStatesAlaska : String, AirportUnitedStates { // https:
     }
     
     public var icao : String {
-        let suffix:String
         switch self {
-        case .merrill:
-            suffix = "MR"
-            break
-        case .ted_stevens:
-            suffix = "NC"
-            break
-        case .bethel:
-            suffix = "BE"
-            break
-        case .merleSmith:
-            suffix = "CV"
-            break
-        case .deadhorse:
-            suffix = "SC"
-            break
-        case .dillingham:
-            suffix = "DL"
-            break
-        case .fairbanks:
-            suffix = "FA"
-            break
-        case .gustavus:
-            suffix = "GS"
-            break
-        case .homer:
-            suffix = "HO"
-            break
-        case .juneau:
-            suffix = "JN"
-            break
-        case .kenai:
-            suffix = "EN"
-            break
-        case .ketchikan:
-            suffix = "KT"
-            break
-        case .kingSalmon:
-            suffix = "KN"
-            break
-        case .klawock:
-            suffix = "KW"
-            break
-        case .kodiak:
-            suffix = "DQ"
-            break
-        case .ralphWien:
-            suffix = "OT"
-            break
-        case .nome:
-            suffix = "OM"
-            break
-        case .petersburg:
-            suffix = "PG"
-            break
-        case .sitka:
-            suffix = "SI"
-            break
-        case .unalaska:
-            suffix = "DU"
-            break
-        case .postRogers:
-            suffix = "BR"
-            break
-        case .wrangell:
-            suffix = "WG"
-            break
-        case .yakutat:
-            suffix = "YA"
-            break
+        case .merrill: return "PAMR"
+        case .ted_stevens: return "PANC"
+        case .bethel: return "PABE"
+        case .merleSmith: return "PACV"
+        case .deadhorse: return "PASC"
+        case .dillingham: return "PADL"
+        case .fairbanks: return "PAFA"
+        case .gustavus: return "PAGS"
+        case .homer: return "PAHO"
+        case .juneau: return "PAJN"
+        case .kenai: return "PAEN"
+        case .ketchikan: return "PAKT"
+        case .kingSalmon: return "PAKN"
+        case .klawock: return "PAKW"
+        case .kodiak: return "PADQ"
+        case .ralphWien: return "PAOT"
+        case .nome: return "PAOM"
+        case .petersburg: return "PAPG"
+        case .sitka: return "PASI"
+        case .unalaska: return "PADU"
+        case .postRogers: return "PABR"
+        case .wrangell: return "PAWG"
+        case .yakutat: return "PAYA"
         }
-        return "PA" + suffix
     }
     
     public var websiteURL : String? {

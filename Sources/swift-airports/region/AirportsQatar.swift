@@ -32,19 +32,11 @@ public enum AirportsQatar : String, Airport { // https://en.wikipedia.org/wiki/L
     }
     
     public var icao : String {
-        let suffix:String
         switch self {
-        case .doha:
-            suffix = "BD"
-            break
-        case .hamad:
-            suffix = "HH"
-            break
-        case .alUdeid:
-            suffix = "BH"
-            break
+        case .doha: return "OTBD"
+        case .hamad: return "OTHH"
+        case .alUdeid: return "OTBH"
         }
-        return "OT" + suffix
     }
     
     public var websiteURL : String? {

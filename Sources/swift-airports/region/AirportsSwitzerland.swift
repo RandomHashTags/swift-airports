@@ -49,31 +49,15 @@ public enum AirportsSwitzerland : String, Airport { // https://en.wikipedia.org/
     }
     
     public var icao : String {
-        let suffix:String
         switch self {
-        case .bern:
-            suffix = "ZB"
-            break
-        case .buochs:
-            suffix = "ZC"
-            break
-        case .geneva:
-            suffix = "GG"
-            break
-        case .lugano:
-            suffix = "ZA"
-            break
-        case .sion:
-            suffix = "SIR"
-            break
-        case .stGallen:
-            suffix = "ACH"
-            break
-        case .zurich:
-            suffix = "ZRH"
-            break
+        case .bern: return "LSZB"
+        case .buochs: return "LSZC"
+        case .geneva: return "LSGG"
+        case .lugano: return "LSZA"
+        case .sion: return "LSGS"
+        case .stGallen: return "LSZR"
+        case .zurich: return "LSZH"
         }
-        return "LS" + suffix
     }
     
     public var websiteURL : String? {
