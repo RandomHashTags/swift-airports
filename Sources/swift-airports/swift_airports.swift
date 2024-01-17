@@ -55,6 +55,7 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
         case .latvia: return AirportsLatvia.self
         case .luxembourg: return AirportsLuxembourg.self
         case .malta: return AirportsMalta.self
+        case .poland: return AirportsPoland.self
         case .qatar: return AirportsQatar.self
         case .netherlands: return AirportsNetherlands.self
         case .switzerland: return AirportsSwitzerland.self
