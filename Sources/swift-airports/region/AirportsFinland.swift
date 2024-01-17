@@ -40,6 +40,10 @@ public enum AirportsFinland : String, Airport { // https://en.wikipedia.org/wiki
     case vaasa
     case varkaus
     
+    case kauhajoki
+    case kitee
+    case sodankyla
+    
     public var country : Country {
         return Country.finland
     }
@@ -50,13 +54,15 @@ public enum AirportsFinland : String, Airport { // https://en.wikipedia.org/wiki
                 .ivalo,
                 .kemiTornio,
                 .kittila,
-                .rovaniemi:
+                .rovaniemi,
+                .sodankyla:
             return SubdivisionsFinland.lapland
         case .helsinkiMalmi,
                 .helsinkiVantaa,
                 .hyvinkaa:
             return SubdivisionsFinland.uusimaa
-        case .joensuu:
+        case .joensuu,
+                .kitee:
             return SubdivisionsFinland.north_karelia
         case .jyvaskyla,
                 .halli:
@@ -64,7 +70,8 @@ public enum AirportsFinland : String, Airport { // https://en.wikipedia.org/wiki
         case .kajaani:
             return SubdivisionsFinland.kainuu
         case .kauhava,
-                .seinajoki:
+                .seinajoki,
+                .kauhajoki:
             return SubdivisionsFinland.south_ostrobothnia
         case .kokkolaPietarsarri,
                 .vaasa:
@@ -123,6 +130,10 @@ public enum AirportsFinland : String, Airport { // https://en.wikipedia.org/wiki
         case .turku: return "TKU"
         case .vaasa: return "VAA"
         case .varkaus: return "VRK"
+            
+        case .kauhajoki: return "KHJ"
+        case .kitee: return "KTQ"
+        case .sodankyla: return "SOT"
         }
     }
     
@@ -156,6 +167,10 @@ public enum AirportsFinland : String, Airport { // https://en.wikipedia.org/wiki
         case .turku: return "EFTU"
         case .vaasa: return "EFVA"
         case .varkaus: return "EFVR"
+            
+        case .kauhajoki: return "EFKJ"
+        case .kitee: return "EFIT"
+        case .sodankyla: return "EFSO"
         }
     }
     
