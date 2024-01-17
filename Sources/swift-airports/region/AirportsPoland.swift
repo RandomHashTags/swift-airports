@@ -93,7 +93,23 @@ public enum AirportsPoland : String, Airport { // https://en.wikipedia.org/wiki/
         }
     }
     
-    public var websiteURL : String? { // TODO: add
-        return nil
+    public var websiteURL : String? {
+        switch self {
+        case .warsawChopin: return "https://www.lotnisko-chopina.pl"
+        case .krakowJohnPaulII: return "https://krakowairport.pl"
+        case .gdanskLechWalesa: return "https://www.airport.gdansk.pl"
+        case .katowiceWojciechKorfanty: return "https://www.katowice-airport.com"
+        case .warsawModlin: return "https://www.modlinairport.pl"
+        case .wroclawCopernicus: return "https://airport.wroclaw.pl"
+        case .poznanLawicaKenrykWieniawski: return "https://poznanairport.pl"
+        case .rzeszowJasionka: return "https://www.rzeszowairport.pl"
+        case .solidaritySzczecinGoleniow: return "https://airport.com.pl"
+        case .lublin: return "https://airport.com.pl"
+        case .bydgoszczIgnacyJanPaderewski: return "https://plb.pl"
+        case .lodzWladyslawReymont: return "https://www.lodz-airport.pl"
+        case .olsztnMazury: return "https://mazuryairport.pl"
+        case .zielonaGoraBabimost: return "https://airport.lubuskie.pl"
+        case .warsawRadom: return "https://www.lotniskowarszawa-radom.pl"
+        }
     }
 }
