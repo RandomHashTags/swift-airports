@@ -5,7 +5,7 @@ final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
         
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 606)
+        XCTAssertEqual(all_airports.count, 608)
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
