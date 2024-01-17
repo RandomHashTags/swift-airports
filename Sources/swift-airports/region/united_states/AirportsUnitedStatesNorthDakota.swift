@@ -21,7 +21,7 @@ public enum AirportsUnitedStatesNorthDakota : String, AirportUnitedStates { // h
         return SubdivisionsUnitedStates.north_dakota
     }
     
-    public var faa: String {
+    public var faa : String {
         switch self {
         case .bismarck: return "BIS"
         case .dickinson: return "DIK"

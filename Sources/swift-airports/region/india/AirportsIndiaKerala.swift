@@ -18,7 +18,7 @@ public enum AirportsIndiaKerala : String, AirportIndia { // https://en.wikipedia
         return SubdivisionsIndia.kerala
     }
     
-    public var iata: String {
+    public var iata : String {
         switch self {
         case .kannur: return "CNN"
         case .cochin: return "COK"

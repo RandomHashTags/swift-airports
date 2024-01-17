@@ -69,7 +69,7 @@ public enum AirportsUnitedStatesTexas : String, AirportUnitedStates { // https:/
         }
     }
     
-    public var iata: String {
+    public var iata : String {
         return faa
     }
     

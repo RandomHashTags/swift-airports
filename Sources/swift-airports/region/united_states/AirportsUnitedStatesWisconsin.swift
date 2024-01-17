@@ -22,7 +22,7 @@ public enum AirportsUnitedStatesWisconsin : String, AirportUnitedStates { // htt
         return SubdivisionsUnitedStates.wisconsin
     }
     
-    public var faa: String {
+    public var faa : String {
         switch self {
         case .appleton: return "ATW"
         case .chippewa: return "EAU"

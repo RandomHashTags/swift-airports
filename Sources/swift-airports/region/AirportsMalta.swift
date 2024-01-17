@@ -26,7 +26,7 @@ public enum AirportsMalta : String, Airport { // https://en.wikipedia.org/wiki/L
         }
     }
     
-    public var iata: String {
+    public var iata : String {
         switch self {
         case .malta: return "MLA"
         case .xewkija: return "GZM"
