@@ -9,7 +9,6 @@ import Foundation
 import SwiftSovereignStates
 
 public enum AirportsPoland : String, Airport { // https://en.wikipedia.org/wiki/List_of_airports_in_Poland
-    
     public typealias SubdivisionLevel1Type = SubdivisionsPoland
     
     case warsawChopin

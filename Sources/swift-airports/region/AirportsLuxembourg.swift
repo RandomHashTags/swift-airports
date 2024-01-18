@@ -9,7 +9,6 @@ import Foundation
 import SwiftSovereignStates
 
 public enum AirportsLuxembourg : String, Airport { // https://en.wikipedia.org/wiki/List_of_airports_in_Luxembourg
-    
     public typealias SubdivisionLevel1Type = SubdivisionsLuxembourg
     
     case luxembourg

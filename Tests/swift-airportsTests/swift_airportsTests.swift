@@ -6,15 +6,16 @@ final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
         
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 734)
+        XCTAssertEqual(all_airports.count, 755)
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
         }, key2: "getAllMentioned2") {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao
         }*/
+        
         return;
-        await extract(slug: "List_of_airports_in_Malaysia", iata_index: 3, icao_index: 2, name_index: 4)
+        await extract(slug: "List_of_airports_in_Kazakhstan", iata_index: 2, icao_index: 1, name_index: 3)
     }
     
     func test_mentions() {
@@ -197,7 +198,13 @@ extension swift_airportsTests {
                    let iata:String = tds[iata_index].text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: .whitespaces), iata.count == 3,
                    let icao:String = tds[icao_index].text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: .whitespaces), icao.count == 4,
                    var airport:String = tds[name_index].text {
-                    airport = airport.components(separatedBy: "Airport")[0].components(separatedBy: "Airfield")[0].components(separatedBy: "International")[0].components(separatedBy: "Regional")[0].components(separatedBy: "[")[0]
+                    airport = airport
+                        .components(separatedBy: "Airport")[0]
+                        .components(separatedBy: "Airfield")[0]
+                        .components(separatedBy: "Air Base")[0]
+                        .components(separatedBy: "International")[0]
+                        .components(separatedBy: "Regional")[0]
+                        .components(separatedBy: "[")[0]
                     let values:[Substring] = airport.split(separator: " ")
                     airport = values[0].lowercased() + values[1...].joined()
                     
