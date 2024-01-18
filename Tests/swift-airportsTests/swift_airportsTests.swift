@@ -6,7 +6,7 @@ final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
         
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 755)
+        XCTAssertEqual(all_airports.count, 761)
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
@@ -202,6 +202,7 @@ extension swift_airportsTests {
                         .components(separatedBy: "Airport")[0]
                         .components(separatedBy: "Airfield")[0]
                         .components(separatedBy: "Air Base")[0]
+                        .components(separatedBy: "Aerodrome")[0]
                         .components(separatedBy: "International")[0]
                         .components(separatedBy: "Regional")[0]
                         .components(separatedBy: "[")[0]
