@@ -13,10 +13,12 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "SwiftAirports",
-            targets: ["SwiftAirports"]),
+            targets: ["SwiftAirports"]
+        ),
     ],
     dependencies: [
-        .package(url: "https://github.com/RandomHashTags/swift-sovereign-states.git", from: "1.3.2")
+        .package(url: "https://github.com/RandomHashTags/swift-sovereign-states.git", from: "1.3.2"),
+        .package(url: "https://github.com/tid-kijyun/Kanna.git", from: "5.2.7")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -30,7 +32,10 @@ let package = Package(
         ),
         .testTarget(
             name: "swift-airportsTests",
-            dependencies: ["SwiftAirports"]
+            dependencies: [
+                "SwiftAirports",
+                .product(name: "Kanna", package: "kanna")
+            ]
         ),
     ]
 )

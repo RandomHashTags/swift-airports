@@ -1,17 +1,20 @@
 import XCTest
 import SwiftAirports
+import Kanna
 
 final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
         
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 657)
+        XCTAssertEqual(all_airports.count, 734)
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
         }, key2: "getAllMentioned2") {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao
         }*/
+        return;
+        await extract(slug: "List_of_airports_in_Malaysia", iata_index: 3, icao_index: 2, name_index: 4)
     }
     
     func test_mentions() {
@@ -144,5 +147,84 @@ extension swift_airportsTests {
     private func get_benchmark_formatted_string(formatter: NumberFormatter, _ value: Any, separation_count: Int = 20) -> String {
         let string:String = formatter.string(for: value)! + "ns"
         return string + (0..<(separation_count - (string.count))).map({ _ in " " }).joined()
+    }
+}
+
+
+extension swift_airportsTests {
+    private func make_request<T : Decodable>(url: String) async -> T? {
+        guard let url:URL = URL(string: url),
+              let data:Data = await make_request(request: URLRequest(url: url)) else {
+            return nil
+        }
+        return try? JSONDecoder().decode(T.self, from: data)
+    }
+    private func request_html(url: String) async -> HTMLDocument? {
+        guard let url:URL = URL(string: url),
+              let data:Data = await make_request(request: URLRequest(url: url)),
+              let html:String = String(data: data, encoding: .utf8) else {
+            return nil
+        }
+        return try? HTML(html: html, encoding: .utf8)
+    }
+    private func make_request(request: URLRequest) async -> Data? {
+        return try? await withCheckedThrowingContinuation({ continuation in
+            let dataTask:URLSessionDataTask = URLSession.shared.dataTask(with: request) { data, response, error in
+                guard let data:Data = data, let _:URLResponse = response else {
+                    let error:Error = error ?? URLError(.badServerResponse)
+                    return continuation.resume(throwing: error)
+                }
+                continuation.resume(returning: data)
+            }
+            dataTask.resume()
+        })
+    }
+    
+    func extract(slug: String, iata_index: Int, icao_index: Int, name_index: Int) async {
+        guard let html:HTMLDocument = await request_html(url: "https://en.wikipedia.org/wiki/" + slug) else {
+            return
+        }
+        let test:XPathObject = html.css("div.mw-parser-output table.sortable tbody")
+        
+        var cases:[String] = []
+        var iatas:[String] = []
+        var icaos:[String] = []
+        for table in test {
+            let trs:XPathObject = table.css("tr")
+            for tr in trs {
+                let tds:XPathObject = tr.css("td")
+                if tds.count > max(iata_index, icao_index, name_index),
+                   let iata:String = tds[iata_index].text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: .whitespaces), iata.count == 3,
+                   let icao:String = tds[icao_index].text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: .whitespaces), icao.count == 4,
+                   var airport:String = tds[name_index].text {
+                    airport = airport.components(separatedBy: "Airport")[0].components(separatedBy: "Airfield")[0].components(separatedBy: "International")[0].components(separatedBy: "Regional")[0].components(separatedBy: "[")[0]
+                    let values:[Substring] = airport.split(separator: " ")
+                    airport = values[0].lowercased() + values[1...].joined()
+                    
+                    cases.append(airport)
+                    iatas.append(iata)
+                    icaos.append(icao)
+                }
+            }
+        }
+        
+        print("CASES")
+        for value in cases {
+            print("case " + value)
+        }
+        
+        print("")
+        print("IATA")
+        for index in iatas.indices {
+            let string:String = "case ." + cases[index] + ": return \"" + iatas[index] + "\""
+            print(string)
+        }
+        
+        print("")
+        print("ICAO")
+        for index in icaos.indices {
+            let string:String = "case ." + cases[index] + ": return \"" + icaos[index] + "\""
+            print(string)
+        }
     }
 }
