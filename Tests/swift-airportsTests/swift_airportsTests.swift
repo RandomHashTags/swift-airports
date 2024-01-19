@@ -4,7 +4,7 @@ import Kanna
 
 final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
-        let airports_count:Int = 839
+        let airports_count:Int = 847
         let all_airports:[any Airport] = Airports.allCases
         XCTAssertEqual(all_airports.count, airports_count)
         

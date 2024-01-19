@@ -65,6 +65,7 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
         case .qatar: return AirportsQatar.self
         case .romania: return AirportsRomania.self
         case .netherlands: return AirportsNetherlands.self
+        case .slovakia: return AirportsSlovakia.self
         case .switzerland: return AirportsSwitzerland.self
         default: return nil
         }
