@@ -23,7 +23,7 @@ final class swift_airportsTests : XCTestCase {
         XCTAssertEqual(icaos_set.count, airports_count, "duplicates=\(get_duplicates(icaos, set: icaos_set))")
         
         return;
-        await extract(slug: "List_of_airports_in_the_Republic_of_Ireland", iata_index: 4, icao_index: 3, name_index: 5)
+        await extract(slug: "List_of_airports_in_Belgium", iata_index: 4, icao_index: 3, name_index: 5)
     }
     private func get_duplicates(_ array: [String], set: Set<String>) -> [String] {
         var array:[String] = array
@@ -139,6 +139,7 @@ extension swift_airportsTests {
                         .components(separatedBy: "Airfield")[0]
                         .components(separatedBy: "Airbase")[0]
                         .components(separatedBy: "Airstrip")[0]
+                        .components(separatedBy: "Heliport")[0]
                         .components(separatedBy: "Army")[0]
                         .components(separatedBy: "Naval")[0]
                         .components(separatedBy: "Air Base")[0]
