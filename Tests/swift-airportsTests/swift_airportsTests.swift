@@ -4,9 +4,8 @@ import Kanna
 
 final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
-        
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 767)
+        XCTAssertEqual(all_airports.count, 786)
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
@@ -15,7 +14,7 @@ final class swift_airportsTests: XCTestCase {
         }*/
         
         return;
-        await extract(slug: "List_of_airports_in_Kazakhstan", iata_index: 2, icao_index: 1, name_index: 3)
+        await extract(slug: "List_of_airports_in_Romania", iata_index: 2, icao_index: 1, name_index: 3)
     }
     
     func test_mentions() {
@@ -195,10 +194,11 @@ extension swift_airportsTests {
             for tr in trs {
                 let tds:XPathObject = tr.css("td")
                 if tds.count > max(iata_index, icao_index, name_index),
-                   let iata:String = tds[iata_index].text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: .whitespaces), iata.count == 3,
-                   let icao:String = tds[icao_index].text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "").trimmingCharacters(in: .whitespaces), icao.count == 4,
+                   let iata:String = tds[iata_index].text?.trimmingCharacters(in: .whitespacesAndNewlines), iata.count == 3,
+                   let icao:String = tds[icao_index].text?.trimmingCharacters(in: .whitespacesAndNewlines), icao.count == 4,
                    var airport:String = tds[name_index].text {
-                    airport = airport
+                    airport = airport.folding(options: [.diacriticInsensitive], locale: nil)
+                        .replacingOccurrences(of: "\"", with: "")
                         .components(separatedBy: "Airport")[0]
                         .components(separatedBy: "Airfield")[0]
                         .components(separatedBy: "Air Base")[0]
@@ -207,7 +207,7 @@ extension swift_airportsTests {
                         .components(separatedBy: "Regional")[0]
                         .components(separatedBy: "[")[0]
                     let values:[Substring] = airport.split(separator: " ")
-                    airport = values[0].lowercased() + values[1...].joined()
+                    airport = values[0].lowercased() + (values.count > 1 ? values[1...].joined() : "")
                     
                     cases.append(airport)
                     iatas.append(iata)
