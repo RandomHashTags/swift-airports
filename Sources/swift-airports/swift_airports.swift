@@ -51,6 +51,7 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
     var airportsType : (any Airport.Type)? {
         switch self {
         case .finland: return AirportsFinland.self
+        case .hungary: return AirportsHungary.self
         case .jamaica: return AirportsJamaica.self
         case .kazakhstan: return AirportsKazakhstan.self
         case .kenya: return AirportsKenya.self
