@@ -1,5 +1,9 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+//
+//  swift_airports.swift
+//
+//
+//  Created by Evan Anderson on 11/22/23.
+//
 
 import Foundation
 import SwiftSovereignStates
@@ -56,6 +60,7 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
         case .jamaica: return AirportsJamaica.self
         case .kazakhstan: return AirportsKazakhstan.self
         case .kenya: return AirportsKenya.self
+        case .kosovo: return nil//AirportsKosovo.self
         case .latvia: return AirportsLatvia.self
         case .luxembourg: return AirportsLuxembourg.self
         case .malaysia: return AirportsMalaysia.self

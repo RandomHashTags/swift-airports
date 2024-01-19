@@ -1,8 +1,15 @@
+//
+//  swift_airportsTests.swift
+//
+//
+//  Created by Evan Anderson on 11/22/23.
+//
+
 import XCTest
 import SwiftAirports
 import Kanna
 
-final class swift_airportsTests: XCTestCase {
+final class swift_airportsTests : XCTestCase {
     func testExample() async throws {
         let airports_count:Int = 847
         let all_airports:[any Airport] = Airports.allCases
@@ -14,12 +21,6 @@ final class swift_airportsTests: XCTestCase {
         let icaos_set:Set<String> = Set(icaos)
         XCTAssertEqual(iatas_set.count, airports_count, "duplicates=\(get_duplicates(iatas, set: iatas_set))")
         XCTAssertEqual(icaos_set.count, airports_count, "duplicates=\(get_duplicates(icaos, set: icaos_set))")
-        
-        /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
-            let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
-        }, key2: "getAllMentioned2") {
-            let _:String = AirportsIndiaJammuAndKashmir.jammu.icao
-        }*/
         
         return;
         await extract(slug: "List_of_airports_in_Portugal", iata_index: 3, icao_index: 2, name_index: 4)
