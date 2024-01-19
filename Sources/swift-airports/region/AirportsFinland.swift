@@ -104,8 +104,8 @@ public enum AirportsFinland : String, Airport { // https://en.wikipedia.org/wiki
         switch self {
         case .enontekio: return "ENF"
         case .helsinkiMalmi: return "HEM"
-        case .helsinkiVantaa: return "HEM"
-        case .hyvinkaa: return "HEL"
+        case .helsinkiVantaa: return "HEL"
+        case .hyvinkaa: return "HYV"
         case .ivalo: return "IVL"
         case .joensuu: return "JOE"
         case .jyvaskyla: return "JYV"

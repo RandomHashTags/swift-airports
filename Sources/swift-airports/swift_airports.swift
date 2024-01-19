@@ -50,6 +50,7 @@ extension String {
 public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_airports_by_country
     var airportsType : (any Airport.Type)? {
         switch self {
+        case .fiji: return AirportsFiji.self
         case .finland: return AirportsFinland.self
         case .hungary: return AirportsHungary.self
         case .jamaica: return AirportsJamaica.self

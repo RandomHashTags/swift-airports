@@ -47,7 +47,7 @@ public enum AirportsIndiaUttar : String, AirportIndia { // https://en.wikipedia.
         case .hindon: return "VIDX"
         case .gorakhpur: return "VEGK"
         case .kanpur: return "VIKA"
-        case .kushinagar: return "VEGK"
+        case .kushinagar: return "VEKI"
         case .chaudharyCharanSingh: return "VILK"
         case .prayagraj: return "VEAB"
         case .lalBahadurShastri: return "VEBN"

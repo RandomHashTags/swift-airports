@@ -4,8 +4,16 @@ import Kanna
 
 final class swift_airportsTests: XCTestCase {
     func testExample() async throws {
+        let airports_count:Int = 813
         let all_airports:[any Airport] = Airports.allCases
-        XCTAssertEqual(all_airports.count, 786)
+        XCTAssertEqual(all_airports.count, airports_count)
+        
+        let iatas:[String] = all_airports.map({ $0.iata })
+        let icaos:[String] = all_airports.map({ $0.icao })
+        let iatas_set:Set<String> = Set(iatas)
+        let icaos_set:Set<String> = Set(icaos)
+        XCTAssertEqual(iatas_set.count, airports_count, "duplicates=\(get_duplicates(iatas, set: iatas_set))")
+        XCTAssertEqual(icaos_set.count, airports_count, "duplicates=\(get_duplicates(icaos, set: icaos_set))")
         
         /*try await benchmark_compare_is_faster(key1: "getAllMentioned", {
             let _:String = AirportsIndiaJammuAndKashmir.jammu.icao_suffix
@@ -14,7 +22,15 @@ final class swift_airportsTests: XCTestCase {
         }*/
         
         return;
-        await extract(slug: "List_of_airports_in_Romania", iata_index: 2, icao_index: 1, name_index: 3)
+        await extract(slug: "List_of_airports_in_Fiji", iata_index: 3, icao_index: 2, name_index: 4)
+    }
+    private func get_duplicates(_ array: [String], set: Set<String>) -> [String] {
+        var array:[String] = array
+        for value in set {
+            let index:Int = array.firstIndex(of: value)!
+            array.remove(at: index)
+        }
+        return array
     }
     
     func test_mentions() {
@@ -199,6 +215,7 @@ extension swift_airportsTests {
                    var airport:String = tds[name_index].text {
                     airport = airport.folding(options: [.diacriticInsensitive], locale: nil)
                         .replacingOccurrences(of: "\"", with: "")
+                        .split(separator: "/")[0]
                         .components(separatedBy: "Airport")[0]
                         .components(separatedBy: "Airfield")[0]
                         .components(separatedBy: "Air Base")[0]
