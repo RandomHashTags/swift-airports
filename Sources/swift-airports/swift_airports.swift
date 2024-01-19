@@ -57,6 +57,7 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
         case .fiji: return AirportsFiji.self
         case .finland: return AirportsFinland.self
         case .hungary: return AirportsHungary.self
+        case .ireland: return AirportsIreland.self
         case .jamaica: return AirportsJamaica.self
         case .kazakhstan: return AirportsKazakhstan.self
         case .kenya: return AirportsKenya.self

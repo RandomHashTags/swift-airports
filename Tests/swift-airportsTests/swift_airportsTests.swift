@@ -11,7 +11,7 @@ import Kanna
 
 final class swift_airportsTests : XCTestCase {
     func testExample() async throws {
-        let airports_count:Int = 847
+        let airports_count:Int = 864
         let all_airports:[any Airport] = Airports.allCases
         XCTAssertEqual(all_airports.count, airports_count)
         
@@ -23,7 +23,7 @@ final class swift_airportsTests : XCTestCase {
         XCTAssertEqual(icaos_set.count, airports_count, "duplicates=\(get_duplicates(icaos, set: icaos_set))")
         
         return;
-        await extract(slug: "List_of_airports_in_Portugal", iata_index: 3, icao_index: 2, name_index: 4)
+        await extract(slug: "List_of_airports_in_the_Republic_of_Ireland", iata_index: 4, icao_index: 3, name_index: 5)
     }
     private func get_duplicates(_ array: [String], set: Set<String>) -> [String] {
         var array:[String] = array
@@ -129,8 +129,8 @@ extension swift_airportsTests {
             for tr in trs {
                 let tds:XPathObject = tr.css("td")
                 if tds.count > max(iata_index, icao_index, name_index),
-                   let iata:String = tds[iata_index].text?.trimmingCharacters(in: .whitespacesAndNewlines), iata.count == 3,
-                   let icao:String = tds[icao_index].text?.trimmingCharacters(in: .whitespacesAndNewlines), icao.count == 4,
+                   let iata:String = tds[iata_index].text?.split(separator: "[").first?.trimmingCharacters(in: .whitespacesAndNewlines), iata.count == 3,
+                   let icao:String = tds[icao_index].text?.split(separator: "[").first?.trimmingCharacters(in: .whitespacesAndNewlines), icao.count == 4,
                    var airport:String = tds[name_index].text {
                     airport = airport.folding(options: [.diacriticInsensitive], locale: nil)
                         .replacingOccurrences(of: "\"", with: "")
@@ -138,6 +138,7 @@ extension swift_airportsTests {
                         .components(separatedBy: "Airport")[0]
                         .components(separatedBy: "Airfield")[0]
                         .components(separatedBy: "Airbase")[0]
+                        .components(separatedBy: "Airstrip")[0]
                         .components(separatedBy: "Army")[0]
                         .components(separatedBy: "Naval")[0]
                         .components(separatedBy: "Air Base")[0]
