@@ -11,7 +11,7 @@ import Kanna
 
 final class swift_airportsTests : XCTestCase {
     func testExample() async throws {
-        let airports_count:Int = 864
+        let airports_count:Int = 870
         let all_airports:[any Airport] = Airports.allCases
         XCTAssertEqual(all_airports.count, airports_count)
         
@@ -23,7 +23,7 @@ final class swift_airportsTests : XCTestCase {
         XCTAssertEqual(icaos_set.count, airports_count, "duplicates=\(get_duplicates(icaos, set: icaos_set))")
         
         return;
-        await extract(slug: "List_of_airports_in_Belgium", iata_index: 4, icao_index: 3, name_index: 5)
+        await extract(slug: "List_of_airports_in_Belarus", iata_index: 3, icao_index: 2, name_index: 4)
     }
     private func get_duplicates(_ array: [String], set: Set<String>) -> [String] {
         var array:[String] = array
@@ -135,6 +135,11 @@ extension swift_airportsTests {
                     airport = airport.folding(options: [.diacriticInsensitive], locale: nil)
                         .replacingOccurrences(of: "\"", with: "")
                         .split(separator: "/")[0]
+                        .split(separator: "(")[0]
+                        .components(separatedBy: "National")[0]
+                        .components(separatedBy: "International")[0]
+                        .components(separatedBy: "Regional")[0]
+                    
                         .components(separatedBy: "Airport")[0]
                         .components(separatedBy: "Airfield")[0]
                         .components(separatedBy: "Airbase")[0]
@@ -145,8 +150,6 @@ extension swift_airportsTests {
                         .components(separatedBy: "Air Base")[0]
                         .components(separatedBy: "Air Station")[0]
                         .components(separatedBy: "Aerodrome")[0]
-                        .components(separatedBy: "International")[0]
-                        .components(separatedBy: "Regional")[0]
                         .components(separatedBy: "[")[0]
                     let values:[Substring] = airport.split(separator: " ")
                     airport = values[0].lowercased() + (values.count > 1 ? values[1...].joined() : "")
