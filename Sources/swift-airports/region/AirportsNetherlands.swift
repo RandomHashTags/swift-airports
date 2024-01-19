@@ -12,7 +12,7 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
     public typealias SubdivisionLevel1Type = SubdivisionsNetherlands
     
     case amsterdam
-    //case flamingo
+    case flamingo
     case denHelder
     case eindhoven
     case enschede
@@ -20,8 +20,8 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
     case lelystad
     case maastrichtAachen
     case rotterdamTheHauge
-    //case juanchoYrausquin
-    //case fdRoosevelt
+    case juanchoYrausquin
+    case fdRoosevelt
     
     case gilzeRijen
     case leeuwarden
@@ -37,7 +37,7 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
     public var subdivisionLevel1 : SubdivisionsNetherlands {
         switch self {
         case .amsterdam: return SubdivisionsNetherlands.north_holland
-        //case .flamingo: return SubdivisionsNetherlands.caribbeanNetherlands
+        case .flamingo: return SubdivisionsNetherlands.bonaire
         case .denHelder: return SubdivisionsNetherlands.north_holland
         case .eindhoven: return SubdivisionsNetherlands.north_brabant
         case .enschede: return SubdivisionsNetherlands.overijssel
@@ -45,8 +45,8 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
         case .lelystad: return SubdivisionsNetherlands.flevoland
         case .maastrichtAachen: return SubdivisionsNetherlands.limburg
         case .rotterdamTheHauge: return SubdivisionsNetherlands.south_holland
-        //case .juanchoYrausquin: return SubdivisionsNetherlands.caribbeanNetherlands
-        //case .fdRoosevelt: return SubdivisionsNetherlands.caribbeanNetherlands
+        case .juanchoYrausquin: return SubdivisionsNetherlands.saba
+        case .fdRoosevelt: return SubdivisionsNetherlands.sint_eustatius
             
         case .gilzeRijen: return SubdivisionsNetherlands.north_brabant
         case .leeuwarden: return SubdivisionsNetherlands.friesland
@@ -60,6 +60,7 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
     public var iata : String {
         switch self {
         case .amsterdam: return "AMS"
+        case .flamingo: return "BON"
         case .denHelder: return "DHR"
         case .eindhoven: return "EIN"
         case .enschede: return "ENS"
@@ -67,6 +68,8 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
         case .lelystad: return "LEY"
         case .maastrichtAachen: return "MST"
         case .rotterdamTheHauge: return "RTM"
+        case .juanchoYrausquin: return "SAB"
+        case .fdRoosevelt: return "EUX"
             
         case .gilzeRijen: return "GLZ"
         case .leeuwarden: return "LWR"
@@ -80,6 +83,7 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
     public var icao : String {
         switch self {
         case .amsterdam: return "EHAM"
+        case .flamingo: return "TNCB"
         case .denHelder: return "EHKD"
         case .eindhoven: return "EHEH"
         case .enschede: return "EHTW"
@@ -87,6 +91,8 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
         case .lelystad: return "EHLE"
         case .maastrichtAachen: return "EHBK"
         case .rotterdamTheHauge: return "EHRD"
+        case .juanchoYrausquin: return "TNCS"
+        case .fdRoosevelt: return "TNCE"
             
         case .gilzeRijen: return "EHGR"
         case .leeuwarden: return "EHLW"
@@ -100,6 +106,7 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
     public var websiteURL : String? {
         switch self {
         case .amsterdam: return "https://www.schiphol.nl"
+        case .flamingo: return "https://bonaireinternationalairport.com"
         case .denHelder: return "https://denhelderairport.nl"
         case .eindhoven: return "https://www.eindhovenairport.nl"
         case .enschede: return "https://www.twente-airport.nl"
@@ -107,6 +114,8 @@ public enum AirportsNetherlands : String, Airport { // https://en.wikipedia.org/
         case .lelystad: return "https://www.lelystadairport.nl"
         case .maastrichtAachen: return "https://www.maa.nl"
         case .rotterdamTheHauge: return "https://www.rotterdamthehagueairport.nl"
+        case .juanchoYrausquin: return nil
+        case .fdRoosevelt: return nil
             
         case .gilzeRijen: return "https://www.defensie.nl/organisatie/luchtmacht/vliegbases-en-luchtmachtonderdelen/gilze-rijen"
         case .leeuwarden: return "https://www.defensie.nl/organisatie/luchtmacht/vliegbases-en-luchtmachtonderdelen/leeuwarden"
