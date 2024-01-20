@@ -8,10 +8,11 @@
 import XCTest
 import SwiftAirports
 import Kanna
+import SwiftSovereignStates
 
 final class swift_airportsTests : XCTestCase {
     func testExample() async throws {
-        let airports_count:Int = 875
+        let airports_count:Int = 1375
         let all_airports:[any Airport] = Airports.allCases
         XCTAssertEqual(all_airports.count, airports_count)
         
@@ -23,7 +24,7 @@ final class swift_airportsTests : XCTestCase {
         XCTAssertEqual(icaos_set.count, airports_count, "duplicates=\(get_duplicates(icaos, set: icaos_set))")
         
         return;
-        await extract(slug: "List_of_airports_in_Estonia", iata_index: 2, icao_index: 1, name_index: 3)
+        await extract(Country.australia, iata_index: 2, icao_index: 1, name_index: 3)
     }
     private func get_duplicates(_ array: [String], set: Set<String>) -> [String] {
         var array:[String] = array
@@ -115,8 +116,10 @@ extension swift_airportsTests {
         })
     }
     
-    func extract(slug: String, iata_index: Int, icao_index: Int, name_index: Int) async {
-        guard let html:HTMLDocument = await request_html(url: "https://en.wikipedia.org/wiki/" + slug) else {
+    func extract(_ country: Country, slug: String? = nil, iata_index: Int, icao_index: Int, name_index: Int) async {
+        let country_name:String = country.name
+        let url:String = "https://en.wikipedia.org/wiki/List_of_airports_in_" + (slug ?? country_name.replacingOccurrences(of: " ", with: "_"))
+        guard let html:HTMLDocument = await request_html(url: url) else {
             return
         }
         let test:XPathObject = html.css("div.mw-parser-output table.sortable tbody")
@@ -152,7 +155,7 @@ extension swift_airportsTests {
                         .components(separatedBy: "Aerodrome")[0]
                         .components(separatedBy: "[")[0]
                     let values:[Substring] = airport.split(separator: " ")
-                    airport = values[0].lowercased() + (values.count > 1 ? values[1...].joined() : "")
+                    airport = values[0].trimmingCharacters(in: .whitespacesAndNewlines).lowercased() + (values.count > 1 ? values[1...].joined() : "").trimmingCharacters(in: .whitespacesAndNewlines)
                     
                     cases.append(airport)
                     iatas.append(iata)
@@ -161,23 +164,30 @@ extension swift_airportsTests {
             }
         }
         
-        print("CASES")
+        print("\nimport SwiftSovereignStates\n\npublic enum Airports" + country_name.replacingOccurrences(of: " ", with: "") + " : String, Airport { // " + url)
         for value in cases {
-            print("case " + value)
+            print("    case " + value)
         }
         
-        print("")
-        print("IATA")
+        
+        print("\n    public var iata : String {")
+        print("        switch self {")
         for index in iatas.indices {
-            let string:String = "case ." + cases[index] + ": return \"" + iatas[index] + "\""
+            let string:String = "        case ." + cases[index] + ": return \"" + iatas[index] + "\""
             print(string)
         }
+        print("        }")
+        print("    }")
         
-        print("")
-        print("ICAO")
+        print("\n    public var icao : String {")
+        print("        switch self {")
         for index in icaos.indices {
-            let string:String = "case ." + cases[index] + ": return \"" + icaos[index] + "\""
+            let string:String = "        case ." + cases[index] + ": return \"" + icaos[index] + "\""
             print(string)
         }
+        print("        }")
+        print("    }")
+        
+        print("}")
     }
 }

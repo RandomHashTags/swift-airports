@@ -82,6 +82,7 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
     
     var airports : [any Airport] {
         switch self {
+        case .australia: return SubdivisionsAustralia.allCases.flatMap({ $0.airports })
         case .india: return SubdivisionsIndia.allCases.flatMap({ $0.airports })
         case .united_states: return SubdivisionsUnitedStates.allCases.flatMap({ $0.airports })
         default: return airportsType?.allCases as? [any Airport] ?? []
