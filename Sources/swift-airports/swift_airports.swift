@@ -56,6 +56,10 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
         switch self {
         case .belarus: return AirportsBelarus.self
         case .belgium: return nil//AirportsBelgium.self
+        case .cambodia: return AirportsCambodia.self
+        case .cape_verde: return nil//AirportsCapeVerde.self
+        case .chile: return AirportsChile.self
+        case .cuba: return AirportsCuba.self
         case .estonia: return AirportsEstonia.self
         case .fiji: return AirportsFiji.self
         case .finland: return AirportsFinland.self
