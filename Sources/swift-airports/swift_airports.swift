@@ -76,6 +76,9 @@ public extension Country { // https://en.wikipedia.org/wiki/Category:Lists_of_ai
         case .netherlands: return AirportsNetherlands.self
         case .slovakia: return AirportsSlovakia.self
         case .switzerland: return AirportsSwitzerland.self
+        case .yemen: return AirportsYemen.self
+        case .zambia: return AirportsZambia.self
+        case .zimbabwe: return AirportsZimbabwe.self
         default: return nil
         }
     }

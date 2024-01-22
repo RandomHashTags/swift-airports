@@ -12,7 +12,7 @@ import SwiftSovereignStates
 
 final class swift_airportsTests : XCTestCase {
     func testExample() async throws {
-        let airports_count:Int = 1375
+        let airports_count:Int = 1425
         let all_airports:[any Airport] = Airports.allCases
         XCTAssertEqual(all_airports.count, airports_count)
         
@@ -24,7 +24,7 @@ final class swift_airportsTests : XCTestCase {
         XCTAssertEqual(icaos_set.count, airports_count, "duplicates=\(get_duplicates(icaos, set: icaos_set))")
         
         return;
-        await extract(Country.australia, iata_index: 2, icao_index: 1, name_index: 3)
+        await extract(Country.yemen, iata_index: 3, icao_index: 2, name_index: 4)
     }
     private func get_duplicates(_ array: [String], set: Set<String>) -> [String] {
         var array:[String] = array
